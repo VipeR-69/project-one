@@ -1,3 +1,4 @@
+{% extends 'blog/base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -8,28 +9,16 @@
 </head>
 
 <body>
-    <header class="page-header">
-        <div class="container">
-            <h1><a href="/">Django Test Blog</a></h1>
-        </div>
-    </header>
-    <center><h1>DJANGO IS RUNNING</h1></center>
-    <hr>
-        <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">
-            <main class="container">
-                <div class="row">
-                    <div class="col">
-                        {% for post in posts %}
-                            <article class="post">
-                                <time class="date">
-                                    {{ post.published_date }}
-                                </time>
-                                <h2><a href="">{{ post.title }}</a></h2>
-                                <p>{{ post.text|linebreaksbr }}</p>
-                            </article>
-                        {% endfor %}
-                    </div>
-                </div>
-            </main>
+    {% block content %}
+        {% for post in posts %}
+            <article class="post">
+                <time class="date">
+                    {{ post.published_date }}
+                </time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
+    {% endblock %}
 </body>
 </html>
