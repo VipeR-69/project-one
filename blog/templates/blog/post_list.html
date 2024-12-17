@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
+<header>
+    <center>
+        <h1><a href="/">TEST SITE</a></h1>
+    </center>
+</header>
 <body>
-    <center><h1>KITNA PADH LIYA KAPOOR ??</h1></center>
+    <center><h1>DJANGO IS RUNNING</h1></center>
+    <hr>
+    <center>
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
+    </center>
 </body>
 </html>
